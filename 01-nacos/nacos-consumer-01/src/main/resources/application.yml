@@ -1,0 +1,21 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: nacos-consumer
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        username: nacos
+        password: nacos
+
+#暴露端点，监控
+
+
+#增加Hystrix熔断器
+feign:
+  hystrix:
+    enabled: true
+
