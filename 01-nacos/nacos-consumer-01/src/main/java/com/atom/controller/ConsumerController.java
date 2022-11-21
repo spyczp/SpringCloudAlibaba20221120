@@ -2,17 +2,20 @@ package com.atom.controller;
 
 import com.atom.feign.ConsumerToProviderFeign;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class ConsumerController {
 
+    @Qualifier("com.atom.feign.ConsumerToProviderFeign")
     @Autowired
     private ConsumerToProviderFeign consumerToProviderFeign;
 
@@ -55,6 +58,30 @@ public class ConsumerController {
     @GetMapping("/callThroughFeign/{msg}")
     public String callThroughFeign(@PathVariable("msg") String msg){
         return consumerToProviderFeign.echo(msg);
+    }
+
+    @GetMapping("/testDivide")
+    public String testDivide(@RequestParam("a") Integer a, @RequestParam("b") Integer b){
+        String result = consumerToProviderFeign.divide(a, b);
+        return result;
+    }
+
+    @GetMapping("/testDivide2")
+    public String testDivide2(@RequestParam("a") Integer a){
+        String result = consumerToProviderFeign.divide(a);
+        return result;
+    }
+
+    @GetMapping("/services/{service}")
+    public Object client(@PathVariable String service){
+        return discoveryClient.getInstances(service);
+    }
+
+    @GetMapping("/services")
+    public Object services(){
+        System.out.println(discoveryClient.description());
+        System.out.println(discoveryClient.getOrder());
+        return discoveryClient.getServices();
     }
 
 }
