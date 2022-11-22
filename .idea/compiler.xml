@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="nacos-provider-02" />
+        <module name="nacos-config-a" />
         <module name="nacos-provider-01" />
         <module name="nacos-consumer-01" />
         <module name="01-nacos" />
@@ -15,6 +16,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="01-nacos" target="8" />
+      <module name="nacos-config-a" target="1.8" />
       <module name="nacos-consumer-01" target="1.8" />
       <module name="nacos-provider-01" target="1.8" />
       <module name="nacos-provider-02" target="1.8" />

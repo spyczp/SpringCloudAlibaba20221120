@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/01-nacos/01-nacos.iml" filepath="$PROJECT_DIR$/01-nacos/01-nacos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-nacos/nacos-config-a/nacos-config-a.iml" filepath="$PROJECT_DIR$/01-nacos/nacos-config-a/nacos-config-a.iml" />
       <module fileurl="file://$PROJECT_DIR$/01-nacos/nacos-consumer-01/nacos-consumer-01.iml" filepath="$PROJECT_DIR$/01-nacos/nacos-consumer-01/nacos-consumer-01.iml" />
       <module fileurl="file://$PROJECT_DIR$/01-nacos/nacos-provider-01/nacos-provider-01.iml" filepath="$PROJECT_DIR$/01-nacos/nacos-provider-01/nacos-provider-01.iml" />
       <module fileurl="file://$PROJECT_DIR$/01-nacos/nacos-provider-02/nacos-provider-02.iml" filepath="$PROJECT_DIR$/01-nacos/nacos-provider-02/nacos-provider-02.iml" />
