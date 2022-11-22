@@ -1,0 +1,16 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: nacos-config-b
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+        prefix: nacos-config
+        file-extension: yml
+
+  profiles:
+    active: dev
