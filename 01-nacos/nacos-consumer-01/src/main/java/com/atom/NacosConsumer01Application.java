@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class NacosConsumer01Application {
 
-    @LoadBalanced //这里除了开启负载均衡外，还把restTemplate对象交给ribbon来管理
+    //@LoadBalanced //这里除了开启负载均衡外，还把restTemplate对象交给ribbon来管理
     @Bean
     public RestTemplate getRestTemplate(){
         return new RestTemplate();

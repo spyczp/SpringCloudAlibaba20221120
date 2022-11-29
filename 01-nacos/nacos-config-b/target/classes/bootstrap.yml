@@ -1,0 +1,28 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: nacos-config-b
+  cloud:
+    nacos:
+      server-addr: 192.168.1.7:8848,192.168.1.7:8850,192.168.1.7:8852
+      #server-addr: 192.168.30.128:80
+      discovery:
+#        namespace: f21b18fb-8c62-43b0-a836-781903157714
+#        group: DEV_GROUP
+        username: nacos
+        password: nacos
+      config:
+        server-addr: 192.168.1.7:8848,192.168.1.7:8850,192.168.1.7:8852
+        #server-addr: 192.168.30.128:80
+        username: nacos
+        password: nacos
+        namespace: f21b18fb-8c62-43b0-a836-781903157714
+        group: A_GROUP
+        prefix: nacos-config
+        file-extension: yml
+
+
+  profiles:
+    active: dev
