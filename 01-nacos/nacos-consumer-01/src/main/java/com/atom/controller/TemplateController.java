@@ -4,10 +4,12 @@ import com.atom.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
@@ -16,7 +18,7 @@ public class TemplateController {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String remoteUrl = "http://192.168.30.1:8081";
+    private final String remoteUrl = "http://nacos-provider";
 
     @GetMapping("/web/hello")
     public String hello(){
@@ -158,4 +160,33 @@ public class TemplateController {
         return body2;
     }
 
+    @GetMapping("/web/updateUser")
+    public String updateUser(){
+
+        MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
+
+        map.add("id", 1333);
+        map.add("name", "墨子");
+        map.add("phone", "15815617988");
+
+        restTemplate.put(remoteUrl + "/service/updateUser", map);
+
+        return "success";
+    }
+
+    @GetMapping("/web/deleteUser")
+    public String deleteUser(){
+        String[] strArray = {"1666", "李广", "15913561247"};
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("id", 1777);
+        map.put("name", "卫青");
+        map.put("phone", "15823459876");
+
+        restTemplate.delete(remoteUrl + "/service/deleteUser?id={0}&name={1}&phone={2}", strArray);
+
+        restTemplate.delete(remoteUrl + "/service/deleteUser?id={id}&name={name}&phone={phone}", map);
+
+        return "success!!";
+    }
 }

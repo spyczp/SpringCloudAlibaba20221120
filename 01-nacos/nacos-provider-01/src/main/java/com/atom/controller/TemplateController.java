@@ -62,4 +62,34 @@ public class TemplateController {
 
         return user;
     }
+
+    @PutMapping("/service/updateUser")
+    public User updateUser(@RequestParam Integer id,
+                           @RequestParam String name,
+                           @RequestParam String phone){
+
+        System.out.println("服务提供者1---》/service/updateUser--->" + id + "-" + name + "-" + phone);
+
+        User user = User.builder()
+                .id(1222)
+                .name("韩非子")
+                .phone("13512315678")
+                .build();
+
+        return user;
+    }
+
+    @DeleteMapping("/service/deleteUser")
+    public User deleteUser(@RequestParam Integer id,
+                           @RequestParam String name,
+                           @RequestParam String phone){
+
+        System.out.println("服务提供者1---》/service/deleteUser--->" + id + "-" + name + "-" + phone);
+
+        return User.builder()
+                .id(1555)
+                .name("孙子")
+                .phone("18956789876")
+                .build();
+    }
 }
