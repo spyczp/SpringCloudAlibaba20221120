@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "nacos-provider", fallback = ConsumerToProviderFeignHystrix.class)
 public interface ConsumerToProviderFeign {
 
+    @GetMapping("/test1")
+    public String test1();
+
     @GetMapping("/")
     public ResponseEntity index();
 

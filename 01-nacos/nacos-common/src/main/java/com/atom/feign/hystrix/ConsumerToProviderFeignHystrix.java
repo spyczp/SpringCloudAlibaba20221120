@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConsumerToProviderFeignHystrix implements ConsumerToProviderFeign {
     @Override
+    public String test1() {
+        return "test1不通，备胎来了";
+    }
+
+    @Override
     public ResponseEntity index() {
         return null;
     }
