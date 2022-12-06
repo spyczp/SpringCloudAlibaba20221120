@@ -12,14 +12,23 @@
         <module name="nacos-provider-01" />
         <module name="nacos-consumer-01" />
         <module name="01-nacos" />
+        <module name="nacos-config-b" />
+      </profile>
+      <profile name="Annotation profile for Unknown" enabled="true">
+        <sourceOutputDir name="../../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wrapper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="01-nacos" target="8" />
-      <module name="nacos-config-a" target="1.8" />
+      <module name="nacos-config-a" target="1.5" />
+      <module name="nacos-config-b" target="1.8" />
       <module name="nacos-consumer-01" target="1.8" />
       <module name="nacos-provider-01" target="1.8" />
       <module name="nacos-provider-02" target="1.8" />
+      <module name="wrapper" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

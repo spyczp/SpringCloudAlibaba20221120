@@ -17,6 +17,10 @@ spring:
       discovery:
         username: nacos
         password: nacos
+    #指定sentinel-dashboard控制台地址
+    sentinel:
+      transport:
+        dashboard: 121.37.9.58:8080
 
 #暴露端点，监控
 
@@ -25,4 +29,23 @@ spring:
 feign:
   hystrix:
     enabled: true
+  client:
+    config:
+      #指定针对所有服务的配置
+      defalut:
+        #read-timeout: 5
+        #connection-timeout: 5
+        logger-level: full
+      #指定针对具体服务的配置
+      #nacos-provider:
+        #read-timeout: 5
+        #connection-timeout: 5
+
+#开启饥饿加载，默认是懒加载。开启后，程序启动时，就会从注册中心获取服务列表。
+ribbon:
+  eager-load:
+    enabled: true
+    clients: nacos-consumer
+
+
 

@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/01-nacos/nacos-config-a/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/01-nacos/nacos-config-a/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01-nacos/nacos-config-b/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01-nacos/nacos-config-b/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/01-nacos/nacos-consumer-01/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/01-nacos/nacos-consumer-01/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/01-nacos/nacos-provider-01/src/main/java" charset="UTF-8" />
