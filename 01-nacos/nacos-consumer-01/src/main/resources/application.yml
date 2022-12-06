@@ -10,6 +10,11 @@ spring:
       transport:
         #dashboard: 121.37.9.58:8080
         dashboard: 192.168.30.129:8080
+      #Earlier initialize heart-beat when the spring container starts when the transport dependency is on classpath, the configuration is effective.
+      eager: true
+      #filter:
+        #关闭sentinel对controller的url的保护
+        #enabled: false
 
     nacos:
       #server-addr: 192.168.30.129:8850,192.168.30.130:8850,192.168.30.131:8850
@@ -17,10 +22,6 @@ spring:
       discovery:
         username: nacos
         password: nacos
-    #指定sentinel-dashboard控制台地址
-    sentinel:
-      transport:
-        dashboard: 121.37.9.58:8080
 
 #暴露端点，监控
 
@@ -47,5 +48,9 @@ ribbon:
     enabled: true
     clients: nacos-consumer
 
+
+resttemplate:
+  sentinel:
+    enabled: true
 
 

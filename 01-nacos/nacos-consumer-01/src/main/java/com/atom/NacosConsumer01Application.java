@@ -1,5 +1,8 @@
 package com.atom;
 
+import com.alibaba.cloud.sentinel.annotation.SentinelRestTemplate;
+import com.atom.sentinel.block.MyBlockHandler;
+import com.atom.sentinel.fallback.MyFallBack;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -13,6 +16,10 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class NacosConsumer01Application {
 
+    @SentinelRestTemplate(blockHandler = "blockA",
+                            blockHandlerClass = MyBlockHandler.class,
+                            fallback = "myFallBack",
+                            fallbackClass = MyFallBack.class)
     @LoadBalanced //这里除了开启负载均衡外，还把restTemplate对象交给ribbon来管理
     @Bean
     public RestTemplate getRestTemplate(){

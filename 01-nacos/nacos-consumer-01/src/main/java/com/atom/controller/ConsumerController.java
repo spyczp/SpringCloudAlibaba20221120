@@ -2,6 +2,7 @@ package com.atom.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.atom.feign.ConsumerToProviderFeign;
+import com.atom.sentinel.fallback.MyFallBack;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
@@ -103,7 +104,7 @@ public class ConsumerController {
      * @return
      */
     @GetMapping("/paramFlowTest")
-    @SentinelResource("paramFlowTest")
+    @SentinelResource(value = "paramFlowTest", fallback = "myFallBack2", fallbackClass = MyFallBack.class)
     public String paramFlowTest(@RequestParam String name, @RequestParam Integer age){
         return name + ": " + age;
     }
