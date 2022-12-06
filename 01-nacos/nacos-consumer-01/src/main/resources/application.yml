@@ -5,6 +5,12 @@ spring:
   application:
     name: nacos-consumer
   cloud:
+    #添加sentinel-dashboard管理后台的地址
+    sentinel:
+      transport:
+        #dashboard: 121.37.9.58:8080
+        dashboard: 192.168.30.129:8080
+
     nacos:
       #server-addr: 192.168.30.129:8850,192.168.30.130:8850,192.168.30.131:8850
       server-addr: 121.37.9.58:28848

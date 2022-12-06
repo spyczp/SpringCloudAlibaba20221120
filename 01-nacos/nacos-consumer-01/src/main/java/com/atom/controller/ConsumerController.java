@@ -1,5 +1,6 @@
 package com.atom.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.atom.feign.ConsumerToProviderFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -82,6 +83,29 @@ public class ConsumerController {
         System.out.println(discoveryClient.description());
         System.out.println(discoveryClient.getOrder());
         return discoveryClient.getServices();
+    }
+
+    /**
+     * 降级测试
+     * @return
+     */
+    @GetMapping("/degradeTest")
+    public String degradeTest(){
+
+        //Thread.sleep(250);
+        int s = 10 / 0;
+
+        return "降级测试-正常页面";
+    }
+
+    /**
+     * 热点限流测试
+     * @return
+     */
+    @GetMapping("/paramFlowTest")
+    @SentinelResource("paramFlowTest")
+    public String paramFlowTest(@RequestParam String name, @RequestParam Integer age){
+        return name + ": " + age;
     }
 
 }
