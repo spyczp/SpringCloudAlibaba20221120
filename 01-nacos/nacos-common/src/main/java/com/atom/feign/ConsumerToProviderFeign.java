@@ -1,5 +1,6 @@
 package com.atom.feign;
 
+import com.atom.feign.fallbackfactory.ConsumerToProviderFeignFallBackFactory;
 import com.atom.feign.hystrix.ConsumerToProviderFeignHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "nacos-provider", fallback = ConsumerToProviderFeignHystrix.class)
+@FeignClient(value = "nacos-provider", /*fallback = ConsumerToProviderFeignHystrix.class*/ fallbackFactory = ConsumerToProviderFeignFallBackFactory.class)
 public interface ConsumerToProviderFeign {
 
     @GetMapping("/test1")

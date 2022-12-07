@@ -11,6 +11,7 @@ spring:
         #dashboard: 121.37.9.58:8080
         dashboard: 192.168.30.129:8080
       #Earlier initialize heart-beat when the spring container starts when the transport dependency is on classpath, the configuration is effective.
+      #饥饿加载
       eager: true
       #filter:
         #关闭sentinel对controller的url的保护
@@ -28,8 +29,8 @@ spring:
 
 #增加Hystrix熔断器
 feign:
-  hystrix:
-    enabled: true
+  #hystrix:
+    #enabled: true
   client:
     config:
       #指定针对所有服务的配置
@@ -41,6 +42,9 @@ feign:
       #nacos-provider:
         #read-timeout: 5
         #connection-timeout: 5
+  #feign： 开启对sentinel的支持
+  sentinel:
+    enabled: true
 
 #开启饥饿加载，默认是懒加载。开启后，程序启动时，就会从注册中心获取服务列表。
 ribbon:
