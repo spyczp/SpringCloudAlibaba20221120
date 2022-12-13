@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域测试</title>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+</head>
+<script type="text/javascript">
+    $(function(){
+        $("#crosA").click(function () {
+            $.ajax({
+                url: "http://192.168.30.1/testOne",
+                type: "get",
+                dataType: "text",
+                success: function (data){
+                    $("h3[name='crosText']").html(data)
+                }
+            });
+        });
+    });
+</script>
+<body>
+    <a href="http://192.168.30.1/testOne">consumer service: testOne</a>
+    <button id="crosA" value="跨域请求">跨域请求</button>
+    <h3 name="crosText"></h3>
+</body>
+</html>

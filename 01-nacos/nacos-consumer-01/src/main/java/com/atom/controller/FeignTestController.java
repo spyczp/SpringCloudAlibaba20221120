@@ -18,13 +18,13 @@ public class FeignTestController {
     @GetMapping("/testOne")
     public String testOne(HttpServletRequest request){
 
-        System.out.println("X-Request-Id=" + request.getHeader("X-Request-Id"));
-
-        //打印网关过滤器中 添加的请求头数据
-        System.out.println("X-Request-red=" + request.getHeader("X-Request-red"));
+//        System.out.println("X-Request-Id=" + request.getHeader("X-Request-Id"));
+//
+//        //打印网关过滤器中 添加的请求头数据
+//        System.out.println("X-Request-red=" + request.getHeader("X-Request-red"));
 
         //打印网关过滤器中 添加的参数
-        System.out.println("color=" + request.getParameter("color"));
+//        System.out.println("color=" + request.getParameter("color"));
 
         String result = consumerToProviderFeign.test1();
         return result;

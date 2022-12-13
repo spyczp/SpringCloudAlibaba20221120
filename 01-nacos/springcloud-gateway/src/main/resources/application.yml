@@ -40,7 +40,7 @@ spring:
             #- Between=2022-12-08T14:25:07.569+08:00[Asia/Shanghai], 2022-12-08T14:33:07.569+08:00[Asia/Shanghai]
             #- Cookie=token, 123456
             #- Header=X-Request-Id, \d+
-            - Query=token
+            #- Query=token
 
         - id: route2
           uri: lb://nacos-provider
